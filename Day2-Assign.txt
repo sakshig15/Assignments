@@ -1,0 +1,299 @@
+Q 1
+class demo {
+	
+	private int width;
+	private int height;
+
+	 
+	public void setwidth(int w)
+	{
+		this.width=w;	
+	}
+	public void setheight(int h)
+	{
+		this.height=h;	
+	}
+	public int getwidth()
+	{
+		return width;
+	}
+	public int getheight()
+	{
+		return height;
+	}
+}
+public class shape{
+public static void main(String[] args) {
+	
+	demo d1=new demo();
+	d1.setwidth(10);
+	System.out.println(d1.getwidth());
+	d1.setheight(12);
+	System.out.println(d1.getheight());
+
+}
+}
+
+Q 2
+public class Myclass
+{
+	
+private int num1;
+private int num2;
+
+	Myclass()
+	{
+		System.out.println("default");
+	}
+	Myclass(int n)
+	{
+		num1=n;
+		System.out.println("num1="+ num1);
+	}
+	Myclass(int n,int m)
+	{
+		num1=n;
+		num2=m;
+		System.out.printf("num1="+num1,"num2="+num2);
+	}
+	public static void main(String args[])
+	{
+		new Myclass();
+		new Myclass (10);
+		new Myclass(12,13);
+	}
+}
+
+Q 3
+public class Emp
+{
+	private static int cnt=10;
+	//int cnt;
+	public void setcnt(int n)
+	{
+		cnt=n;
+	}
+	
+	public static int getcnt()
+	{
+		return cnt;
+	}
+	
+	public static void main(String args[])
+	{
+		Emp e =new Emp();
+		e.setcnt(12);
+		System.out.println(e.getcnt());
+	}
+}
+
+Q 4
+public class DemoOb
+{
+  private int num;
+  
+  public void setnum(int num)
+  {
+	  this.num=num;
+  }
+  public int getnum()
+  {
+	  return num;
+  }
+  public static void main(String args[])
+  {
+	  DemoOb d =new DemoOb();
+	  d.setnum(10);
+	  System.out.println(d.getnum());
+  }
+}
+
+Q 5
+class A
+{
+	private static int a;
+	private int b;
+	
+	
+	public void setnum(int n1,int n2)
+	{
+		b=n2;
+		a=n1;
+	}
+	public int getnum()
+	{
+	   return a+b;	
+	}
+	
+	public static void setnum(int n1)
+	{
+		a=n1;
+		// b=n1;error
+	}
+}
+
+class B
+{
+	private static int a;
+	private int b;
+	
+	public void setnum(int n1,int n2)
+	{
+		b=n2;
+		a=n1;
+	}
+	public int getnum()
+	{
+	   return a;	
+	}
+	
+	public static void setnum(int n1)
+	{
+		a=n1;
+	}
+}
+
+class C
+{
+	private static int a;
+	private int b;
+	
+	public void setnum(int n1,int n2)
+	{
+		b=n2;
+		a=n1;
+	}
+	public int getnum()
+	{
+	   return a-b;	
+	}
+	
+	public static void setnum(int n1)
+	{
+		a=n1;
+	}
+}
+
+public class demo
+{
+	public static void main(String args[])
+	{
+	A obj1 =new A();
+	obj1.setnum(40,20);
+	System.out.println(obj1.getnum());
+	
+	B obj2 =new B();
+	obj2.setnum(10);
+	System.out.println(obj2.getnum());
+	
+	C obj3 =new C();
+	obj3.setnum(40,20);
+	System.out.println(obj3.getnum());
+	}
+}
+
+
+Q 6
+class A
+{
+	{
+		System.out.println("non-static A");
+	}
+	static 
+	{
+		System.out.println("static A");
+	}
+	
+	private static int a;
+	private int b;
+	
+	
+	public void setnum(int n1,int n2)
+	{
+		b=n2;
+		a=n1;
+	}
+	public int getnum()
+	{
+	   return a+b;	
+	}
+	
+	public static void setnum(int n1)
+	{
+		a=n1;
+		// b=n1;error
+	}
+	
+}
+
+class B
+{
+	static
+	{
+		System.out.println("static b1");
+	}
+	private static int a;
+	private int b;
+	
+	public void setnum(int n1,int n2)
+	{
+		b=n2;
+		a=n1;
+	}
+	public int getnum()
+	{
+	   return a;	
+	}
+	
+	public static void setnum(int n1)
+	{
+		a=n1;
+	}
+	static
+	{
+		System.out.println("static b2");
+	}
+}
+
+class C
+{
+	private static int a;
+	private int b;
+	
+	public void setnum(int n1,int n2)
+	{
+		b=n2;
+		a=n1;
+	}
+	public int getnum()
+	{
+	   return a-b;	
+	}
+	
+	public static void setnum(int n1)
+	{
+		a=n1;
+	}
+}
+
+public class demo
+{
+	public static void main(String args[])
+	{
+		
+		
+	A obj1 =new A();
+	obj1.setnum(40,20);
+	System.out.println(obj1.getnum());
+	
+	B obj2 =new B();
+	obj2.setnum(10);
+	System.out.println(obj2.getnum());
+	
+	C obj3 =new C();
+	obj3.setnum(40,20);
+	System.out.println(obj3.getnum());
+	}
+	
+	
+}
