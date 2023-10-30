@@ -1,0 +1,78 @@
+Developer site
+
+First.java
+
+/**
+ * 
+ */
+package Devloper;
+
+/**
+ * @author SAKSHI
+ *
+ */
+public class First {
+ private int num;
+
+/**
+ * @return the num
+ */
+public int getNum() {
+	return num;
+}
+
+/**
+ * @param num the num to set
+ */
+public void setNum(int num) {
+	this.num = num;
+}
+ 
+ 
+}
+
+
+Second.java
+/**
+ * 
+ */
+package Devloper;
+
+/**
+ * @author SAKSHI
+ *
+ */
+public class Second {
+ String ch;
+
+/**
+ * @return the ch
+ */
+public String getCh() {
+	return ch;
+}
+
+/**
+ * @param ch the ch to set
+ */
+public void setCh(String ch) {
+	this.ch = ch;
+}
+ 
+ 
+}
+
+
+Client site
+
+import Devloper.First;
+public class ClientSite {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+      First f =new First();
+      f.setNum(19);
+      System.out.println(f.getNum());
+	}
+
+}
