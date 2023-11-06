@@ -1,0 +1,430 @@
+Q 1
+package trial;
+
+class First 
+{
+  private int num1;
+  static int num;
+  
+   First() 
+   { 
+	  System.out.println("first constructor");
+   }
+
+   void disp1()
+  {
+	  System.out.println("num1 ="+num1);
+  }
+   
+   static void display()
+   {
+	 // System.out.println("num1 ="+num1);   error
+	  System.out.println("static member function num="+num); 
+   }
+   
+   static
+   {
+	   System.out.println("static block of first");
+   }
+}
+
+class Second
+{
+	int num2;
+	static int num3;
+	
+	Second(int n)
+	{
+		num2=n;
+		System.out.println("second constructor");
+	}
+	
+	{
+	 System.out.println("non-static block of second");	
+	}
+	
+	void disp2()
+	{
+		System.out.println("num2 ="+num2);
+		System.out.println("num3 ="+num3);
+	}
+	
+	static
+	{
+		System.out.println("static block of second");
+	}
+}
+
+public class Two
+{
+	public static void main(String args[])
+	{
+		First f =new First();
+		f.disp1();
+		First.display();
+	
+		Second s1=new Second(12);
+		s1.disp2();
+		
+		Second s2 =new Second(20);
+	}
+}
+
+Q 2
+package trial;
+
+class First 
+{
+  private int num1;
+  static int num2;
+  
+   First() 
+   { 
+	  System.out.println("constructor");
+   }
+
+   void disp1()
+  {
+	  System.out.println("num1 ="+num1);
+	  System.out.println("num2 ="+num2);
+  }
+   
+   static void disp2()
+   {
+	  //System.out.println("num1 ="+num1);   //error
+	  System.out.println("static member function num2="+num2); 
+   }
+   
+   static
+   {
+	   System.out.println("static block of first");
+   }
+}
+
+public class check
+{
+	public static void main(String args[])
+	{
+		First f= new First();
+		f.disp1();
+		First.disp2();
+		
+	}
+}
+
+Q 3
+package trial;
+
+class check
+{
+	int n1;
+	private int n2;
+	protected int n3;
+	public int n4;
+	
+	public void disp(int k)
+	{
+		n2=k;
+		System.out.println("n2="+n2);
+	}
+}
+
+public class checkdemo
+{
+	public static void main(String args[])
+	{
+		check c=new check();
+		
+		c.n1=10;
+		//c.n2=20;   error
+		c.disp(20);
+		c.n3=30;
+		c.n4=10;
+		
+		System.out.println("n1="+c.n1);
+		//System.out.println("n2="+c.n2);
+		System.out.println("n3="+c.n3);
+		System.out.println("n4="+c.n4);
+	}
+}
+
+Q 4
+package trial;
+class A
+{
+	int num;
+
+	A(int k)
+	{
+		num=k;
+		System.out.println("A's constructor="+num);
+	}
+}
+
+class B extends A
+{
+	int num;
+	B()
+	{   
+		super(11);
+		System.out.println("B's constructor");
+	}
+	B(int k)
+	{
+		super(11);
+		num=k;
+		System.out.println("B's constructor"+num);
+	}
+}
+
+public class single 
+{
+	public static void main(String args[])
+	{
+		A a =new A(10);
+		B b =new B();
+		B b1 =new B(10);
+	}
+}
+
+Q 5
+package trial;
+
+class Base 
+{
+	Base()
+	{
+		System.out.println("base constructor");
+	}
+}
+
+class sub1 extends Base
+{
+
+	sub1(int k)
+	{
+		System.out.println(k);
+		System.out.println("sub1 constructor");
+	}
+}
+
+class sub2 extends sub1
+{
+	sub2()
+	{   
+		super(12);
+		System.out.println("sub2 constructor");
+	}
+
+	sub2(int k)
+	{   
+		super(12);
+		System.out.println("sub2 parameterised constructor");
+	}
+	
+}
+
+public class multilevel
+{
+	public static void main(String args[])
+	{
+		sub1 s1=new sub1(10);
+		sub2 s2=new sub2();
+		sub2 s3=new sub2(10);
+	}
+}
+
+Q 6
+package trial;
+
+class Base 
+{
+	Base(int k)
+	{
+		System.out.println(k);
+		System.out.println("base constructor");
+	}
+}
+
+class sub1 extends Base
+{
+
+	sub1(int k)
+	{
+		super(k);
+		System.out.println(k);
+		System.out.println("sub1 constructor");
+	}
+}
+
+class sub2 extends Base
+{
+	sub2()
+	{   
+		super(12);
+		System.out.println("sub2 constructor");
+	}
+
+	sub2(int k)
+	{   
+		super(12);
+		System.out.println("sub2 parameterised constructor");
+	}
+	
+}
+
+public class hierarchical
+{
+	public static void main(String args[])
+	{
+		sub1 s1=new sub1(10);
+		sub2 s2=new sub2();
+		sub2 s3=new sub2(10);
+	}
+}
+
+
+Q 7
+package trial;
+
+class base 
+{
+	protected void disp()               //overriden
+	{
+	System.out.println("base disp");	
+	}
+}
+
+class sub extends base
+{
+	public void disp()                  //overriding
+	{
+		System.out.println("sub disp");
+	}
+}
+
+public class demo
+{
+	public static void main(String args[])
+	{
+		sub s =new sub();
+		s.disp();	
+	}
+}
+
+
+Q 8
+package trial;
+
+class base 
+{
+	void disp()
+	{
+	System.out.println("base disp");	
+	}
+}
+
+class sub extends base
+{
+	void disp(int k)
+	{
+		System.out.println("sub disp");
+		System.out.println(k);
+	}
+}
+
+public class demo
+{
+	public static void main(String args[])
+	{
+		sub s =new sub();
+		s.disp(18);
+		s.disp();
+		
+	}
+}
+
+
+Q 9
+package trial;
+class Shape 
+{
+	void draw()
+	{
+		
+	}
+}
+
+class Circle extends Shape
+{
+	void draw()
+	{
+		System.out.println("draw circle");
+	}
+}
+
+class Rectangle extends Shape
+{
+	void draw()
+	{
+		System.out.println("draw rectangle");
+	}
+}
+
+class Polygon extends Shape
+{
+	void draw()
+	{
+		System.out.println("draw polygon");
+	}
+}
+
+public class ShapeDemo
+{
+	public static void main(String args[])
+	{
+		Shape s =new Circle();
+		s.draw();
+	}
+}
+
+Q 10
+package trial;
+
+interface Vehicle
+{
+	void start();
+}
+class TwoWheeler implements Vehicle
+{
+	  public void start() 
+	  { 
+		  System.out.println("start TwoWheeler"); 
+	  }
+	 
+}
+class ThreeWheeler implements Vehicle
+{
+	public void start()
+	{
+		System.out.println("start ThreeWheeler");
+	}
+}
+class FourWheeler implements Vehicle
+{
+	public void start()
+	{
+		System.out.println("start FourWheeler");
+	}
+}
+
+public class VDemo
+{
+	public static void main(String args[])
+	{
+		Vehicle veh=new TwoWheeler();
+		veh.start();
+	}
+}
+
+
